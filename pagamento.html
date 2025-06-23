@@ -1,0 +1,65 @@
+<!-- pagamento.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    label {
+      font-size: 18px;
+      margin: 10px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Escolha o valor do pagamento</h2>
+
+  <form id="formPagamento">
+    <label>
+      <input type="radio" name="valor" value="">
+      R$ 1,99 - Outros
+    </label>
+    <br>
+    <label>
+      <input type="radio" name="valor" value="https://www.mercadopago.com.br">
+      R$ 5,99 - iPhone
+    </label>
+    <br>
+    <button type="button" onclick="fazerPagamento()">Pagamento no valor</button>
+  </form>
+
+  <script>
+    function fazerPagamento() {
+      const radios = document.getElementsByName("valor");
+      let urlSelecionada = null;
+
+      for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          urlSelecionada = radios[i].value;
+          break;
+        }
+      }
+
+      if (urlSelecionada) {
+        window.location.href = urlSelecionada;
+      } else {
+        alert("Por favor, selecione um valor antes de continuar.");
+      }
+    }
+  </script>
+
+</body>
+</html>
+
